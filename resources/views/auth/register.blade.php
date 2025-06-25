@@ -1,0 +1,333 @@
+@extends('layouts.front-auth')
+@section('meta') 
+<title>Register</title>
+@endsection
+@section('content')
+<div class="innerbanner">
+
+  <img class="fullimage" src="{!! asset('design/images/logbanner.jpg') !!}" alt=""/>
+
+  <h2 class="upptext">Register</h2>
+
+</div>
+<div class="gap"></div>
+<div class="container">
+
+  <div class="text-center">
+    <h3 class="heading">already have an account?</h3>
+  </div>
+
+  <div class="col-sm-8 col-sm-offset-2">
+
+    <div class="bglog">
+	  @component('elements.flash') @endcomponent 
+      <form class="form-horizontal" role="form" method="POST" id="register-form" action="{{ route('register') }}">
+      {{ csrf_field() }}
+	  
+	   
+
+        <div class="form-group{{ $errors->has('fname') ? ' has-error' : '' }}">
+          <label for="fname"><span><img src="{!! asset('design/images/formman.png') !!}" alt=""/></span>First Name *</label>
+		  <input id="fname" type="text" placeholder="First name" class="form-control editform" name="fname" value="{{ old('fname') }}" required>
+		  @if ($errors->has('fname'))
+			<span class="help-block">
+				{{ $errors->first('fname') }}
+			</span>
+		 @endif
+        </div>
+		
+		
+		
+			<div class="form-group{{ $errors->has('lname') ? ' has-error' : '' }}">
+			  <label for="lname"><span><img src="{!! asset('design/images/formman.png') !!}" alt=""/></span>Last Name *</label>
+			  <input id="lname" type="text"  placeholder="Last name" class="form-control editform" name="lname" value="{{ old('lname') }}" required>
+			  @if ($errors->has('lname'))
+				<span class="help-block">
+					{{ $errors->first('lname') }}
+				</span>
+			 @endif
+			</div>
+		
+		
+
+        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+          <label for="email"><span><img src="{!! asset('design/images/formmail.png') !!}" alt=""/></span>Email*</label>
+		  <input id="email" type="email"  placeholder="For example abc@domain.com" class="form-control editform" name="email" value="{{ old('email') }}" required>
+		   @if ($errors->has('email'))
+				<span class="help-block">
+					{{ $errors->first('email') }}
+				</span>
+			@endif
+        </div>
+
+        <div class="form-group{{ $errors->has('dob') ? ' has-error' : '' }}">
+		
+          <label for="dob"><span><img src="{!! asset('design/images/formdate.png') !!}" alt=""/></span>Date of birth *</label>
+          <input id="dob" type="text"  placeholder="mm/dd/yyyy" readonly class="form-control editform datepicker" name="dob" style="background-color:#383838;" value="{{ old('dob') }}" required>
+		  @if ($errors->has('dob'))
+			<span class="help-block">
+				{{ $errors->first('dob') }}
+			</span>
+		 @endif
+        </div>
+
+        <div class="form-group{{ $errors->has('phone') ? ' has-error' : '' }}">
+          <label for="phone"><span><img src="{!! asset('design/images/formphone.png') !!}" alt=""/></span>Phone *</label>
+          <input id="phone" type="text"  placeholder="Phone" class="form-control editform" name="phone" value="{{ old('phone') }}" required>
+		  @if ($errors->has('phone'))
+			<span class="help-block">
+				{{ $errors->first('phone') }}
+			</span>
+		 @endif
+        </div>
+
+        <div class="form-group{{ $errors->has('address') ? ' has-error' : '' }}">
+          <label for="address"><span><img src="{!! asset('design/images/formloc.png') !!}" alt=""/></span>Address *</label>
+		  <input id="address" type="text"  placeholder="Address" class="form-control editform" name="address" required>
+		  @if ($errors->has('address'))
+				<span class="help-block">
+					{{ $errors->first('address') }}
+				</span>
+		   @endif
+        </div>
+
+        <div id="extra">
+		
+		
+		<div class="form-group{{ $errors->has('guardian_name') ? ' has-error' : '' }}">
+		<label for="password"><strong>Parent/Guardian Name ,Parent/Guardian Phone ,Parent/Guardian Address</strong> only required for students who are under 18 years old</label>
+          <label for="guardian_name"><span><img src="{!! asset('design/images/formman.png') !!}" alt=""/></span>Parent/Guardian Name </label>
+		  <input id="guardian_name" type="text"  placeholder="Guardian Name" class="form-control editform" name="guardian_name" >
+		  @if ($errors->has('guardian_name'))
+				<span class="help-block">
+					{{ $errors->first('guardian_name') }}
+				</span>
+		   @endif
+        </div>
+		
+		<div class="form-group{{ $errors->has('guardian_phone') ? ' has-error' : '' }}">
+          <label for="guardian_phone"><span><img src="{!! asset('design/images/formphone.png') !!}" alt=""/></span>Parent/Guardian Phone</label>
+		  <input id="guardian_phone" type="text"  placeholder="Guardian phone"  class="form-control editform" name="guardian_phone">
+		  @if ($errors->has('guardian_phone'))
+				<span class="help-block">
+					{{ $errors->first('guardian_phone') }}
+				</span>
+		   @endif
+        </div>
+		
+		<div class="form-group{{ $errors->has('guardian_address') ? ' has-error' : '' }}">
+          <label for="guardian_address"><span><img src="{!! asset('design/images/formloc.png') !!}" alt=""/></span>Parent/Guardian Address</label>
+		  <input id="guardian_address" type="text"  placeholder="Guardian Address" class="form-control editform" name="guardian_address">
+		  @if ($errors->has('guardian_address'))
+				<span class="help-block">
+					{{ $errors->first('guardian_address') }}
+				</span>
+		   @endif
+        </div>
+
+      </div>
+
+        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+          <label for="password"><span><img src="{!! asset('design/images/formlock.png') !!}" alt=""/></span>Password *</label>
+		  <label for="password">Must contain at least one number and one uppercase and lowercase letter and one special character, and at least 8 or maximum 12</label>
+		   <input id="password" type="password"  placeholder="Password" class="form-control editform" name="password" required>
+		   @if ($errors->has('password'))
+				<span class="help-block">
+					{{ $errors->first('password') }}
+				</span>
+		   @endif
+        </div>
+
+        <div class="form-group">
+          <label for="password-confirm"><span><img src="{!! asset('design/images/formlock.png') !!}" alt=""/></span>Confirm Password *</label>
+		  <input id="password-confirm" type="password" class="form-control editform"  placeholder="Confirm Password" name="password_confirmation" required>
+        </div>
+        
+
+        <div class="form-group">
+          
+          <input class="gradiv mainlog" type="submit" value="Register">
+
+        </div>
+
+       
+
+    </form>
+
+    </div>
+
+  </div>
+
+</div>
+<div class="gap"></div>
+
+@endsection
+@push('css')
+{!!Html::style('admin-design/css/jquery-ui.css')!!}
+@endpush
+@push('js')
+{!!Html::script('admin-design/js/jquery.validate.js')!!}
+<script>
+$(function () {
+
+   $.validator.addMethod("emailRegex", function(value, element) {
+        return this.optional(element) || /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/.test(value); 
+      }, "Please enter a valid email");
+	  
+   $.validator.addMethod("passwordRegex", function (value, element) {
+        return this.optional(element) || /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z\d=!@#$%^&*()_*]{8,12}$/.test(value);
+    }, "Must contain at least one number and one uppercase and lowercase letter and one special character, and at least 8 or maximum 12");
+
+//   $.validator.addMethod("nameRegex", function (value, element) {
+//         return this.optional(element) || /^([a-zA-Z_-\s]{3,20})$/.test(value);
+//     }, "Enter valid name");
+  
+    $("#register-form").validate({
+
+          errorElement: 'span',
+          errorClass: 'help-block',
+          highlight: function(element, errorClass, validClass) {
+            $(element).closest('.form-group').addClass("has-error");
+          },
+          unhighlight: function(element, errorClass, validClass) {
+            $(element).closest('.form-group').removeClass("has-error");
+          },
+          errorPlacement: function (error, element) {
+             error.insertAfter(element);
+          },
+
+      rules: {
+
+      		 fname: {
+                      
+                 required: true,
+      		     nameRegex: true
+
+            },
+			lname: {
+                      
+                 required: true,
+      		     nameRegex: true
+
+            },
+             email: {
+                
+                required: true,
+				        emailRegex: true
+               
+
+             },
+			 dob: {
+                
+                required: true
+               
+
+             },
+			 phone: {
+                      
+                 required: true,
+      		     minlength:8,
+				 maxlength:13,
+				 digits:true
+
+            },
+			address: {
+                      
+                 required: true
+				 
+            },
+		
+			 password : {
+			 
+				 required: true,
+				 passwordRegex : true
+				
+			 },
+			 password_confirmation : {
+			
+				required: true,
+				equalTo: '#password-confirm'
+				
+			}
+
+          },
+	    messages: {
+
+             fname: {
+                
+                required: "Please enter a first name"
+
+             },
+			 lname: {
+                
+                required: "Please enter a last name"
+
+             },
+			 email: {
+                
+                required: "Please enter an email"
+
+             },
+			 phone: {
+                
+                required: "Please enter a phone number"
+
+             },
+			 address: {
+                
+                required: "Please enter a address"
+
+             },
+      		 password: {
+                      
+                  required: "Please enter a password"
+
+              },
+			 password_confirmation: {
+                      
+                  required: "Please enter a confirmation password"
+
+              }
+
+          }
+
+    });
+
+    
+
+  });
+
+</script>
+
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+    $( function() {
+      $( "#dob" ).datepicker({
+          dateFormat:'mm/dd/yy',
+          changeMonth: true,
+          changeYear:true,
+		      yearRange: "1930:2060",
+          onSelect: function(value, ui) {
+              var today = new Date().getTime(), 
+                  dob = new Date(value).getTime();
+                  age = today - dob;
+                  yoa = Math.floor(age / 1000 / 60 / 60 / 24 / 365.25); // age / ms / sec / min / hour / days in a year
+              if(yoa < 18){
+                  under18();
+              }else{
+                  overOrEqual18();
+              }
+          }
+        });
+
+    } );
+
+function overOrEqual18(){
+   $('#extra').hide();
+}
+function under18(){
+    $('#extra').show();
+}
+</script>
+@endpush
+
