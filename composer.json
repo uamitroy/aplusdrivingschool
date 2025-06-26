@@ -11,6 +11,7 @@
         "laravel/framework": "5.4.*",
         "laravel/tinker": "~1.0",
         "laravelcollective/html": "^5.4.0",
+        "mews/purifier": "^3.2",
         "paragonie/constant_time_encoding": "^1.0",
         "pragmarx/google2fa": "^3.0",
         "stripe/stripe-php": "^4.0"

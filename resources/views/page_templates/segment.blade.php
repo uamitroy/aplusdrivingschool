@@ -192,7 +192,7 @@ if(isset($_GET['year']) && $_GET['year'] != ''){
                     <h3>${{ $package->price }}</h3>
                   </div>
                   <div class="lowar">
-                    <p>{!! $package->description !!}</p>
+                    {!! clean($package->description) !!}
 
 					@php ($slug = Crypt::encrypt($package->id .','. $slot['id']))
 
