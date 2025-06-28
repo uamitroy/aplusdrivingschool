@@ -102,7 +102,7 @@ class PageController extends Controller
           }
           if($page->id == 7){
             $segment = Segment::where('id',3)->first();
-            $packages = Package::where('segment_id',$segment->id)->get();
+            $packages = Package::where('segment_id',$segment->id)->orderBy('porder','ASC')->get();
             $slot = '';
           }
 
