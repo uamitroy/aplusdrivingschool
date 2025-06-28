@@ -1,6 +1,20 @@
 @extends('layouts.front')
 @section('content')
-
+<style type="text/css">
+  @media (min-width: 768px) {
+    .segprice {
+        min-height: 503px !important;
+        margin-bottom: 16px !important;
+    }
+    .firstcolorbor .headprice {
+        padding: 42px 0 !important;
+    }
+    .bordered {
+        min-height: 391px !important;
+        margin-bottom: 24px !important;
+    }
+}
+</style>
 <div class="innerbanner">
 
   <img class="fullimage" src="{!! asset('design/images/logbanner.jpg') !!}" alt=""/>

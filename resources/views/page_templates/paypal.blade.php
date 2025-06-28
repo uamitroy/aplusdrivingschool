@@ -25,9 +25,9 @@
 </head>
 <body>
 <h4>This page is redirect to the paypal. Do not back or refresh this page....</h4>
-<form action="https://www.paypal.com/cgi-bin/webscr" method="post" name="myPaypalform" id="myPaypalform">
+<form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" name="myPaypalform" id="myPaypalform">
     <!-- Identify your business so that you can collect the payments. -->
-    <input type="hidden" name="business" value="kwmaxnimer@gmail.com">
+    <input type="hidden" name="business" value="sb-jqevd1566228@business.example.com">
     <!-- Specify a Buy Now button. -->
     <input type="hidden" name="cmd" value="_xclick">
     <!-- Specify details about the item that buyers will purchase. -->
