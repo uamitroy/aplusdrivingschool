@@ -3,7 +3,7 @@
 <style type="text/css">
   @media (min-width: 768px) {
     .segprice {
-        min-height: 503px !important;
+        min-height: 547px !important;
         margin-bottom: 16px !important;
     }
     .firstcolorbor .headprice {
