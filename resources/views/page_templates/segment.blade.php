@@ -2,19 +2,28 @@
 @section('content')
 <style type="text/css">
   @media (min-width: 768px) {
-    .segprice {
-        min-height: 547px !important;
-        margin-bottom: 16px !important;
-    }
-    .firstcolorbor .headprice {
-        padding: 42px 0 !important;
-    }
-    .bordered {
-        min-height: 391px !important;
-        margin-bottom: 24px !important;
-    }
-}
+      .segprice {
+          margin-bottom: 16px !important;
+      }
+  }
 </style>
+@if (strpos(request()->url(), 'teen-segment-1') == false)
+<style type="text/css">
+  @media (min-width: 768px) {
+      .segprice {
+          min-height: 547px !important;
+      }
+      .firstcolorbor .headprice {
+          padding: 42px 0 !important;
+      }
+      .bordered {
+          min-height: 391px !important;
+          margin-bottom: 24px !important;
+      }
+  }
+</style>
+@endif
+
 <div class="innerbanner">
 
   <img class="fullimage" src="{!! asset('design/images/logbanner.jpg') !!}" alt=""/>
