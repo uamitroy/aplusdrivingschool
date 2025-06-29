@@ -288,7 +288,7 @@ if(isset($_GET['year']) && $_GET['year'] != ''){
                 	<h4>${{ $package->price }}</h4>
                 </div>
                 <div class="difpara">
-                  <p>{{ $package->description }}</p>
+                  {!! clean($package->description) !!}
                 </div>
                   @php ($slug = Crypt::encrypt($package->id .','. 0))
                   <a class="smallblackbtn" href="{{ route('class.details',$slug)}}">book now</a>
@@ -300,7 +300,7 @@ if(isset($_GET['year']) && $_GET['year'] != ''){
               </div>
 
                <div class="difpara">
-                 <p>{{ $package->description }}</p>
+                 {!! clean($package->description) !!}
                </div>
                <button type="submit" class="smallblackbtn">book now</button>
           {!! Form::close() !!}
