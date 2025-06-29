@@ -17,7 +17,7 @@
 			<div class="col-md-3">
 				<div class="form-group {{ $errors->has('type') ? 'has-error' : ''}}">
 				{!! Form::label('type', 'Slot Type',[ 'class' => 'control-label']) !!}
-				@php($type = ['Online' => 'Online', 'Offline' => 'Offline'])
+				@php($type = ['Virtual' => 'Virtual', 'Offline' => 'Offline'])
 				{!! Form::select('type', ['' => 'Select Type'] + $type, null, array('id' => 'type', 'class' => 'form-control')) !!}
 					<div class="error">
 						@foreach ($errors->get('type') as $error)

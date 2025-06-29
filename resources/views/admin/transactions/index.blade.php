@@ -79,7 +79,7 @@
                                         </div>
                                         <div class="col-lg-4 col-md-4">
                                           <div class="form-group">
-                                          @php($type = ['Online' => 'Online', 'Offline' => 'Offline'])
+                                          @php($type = ['Virtual' => 'Virtual', 'Offline' => 'Offline'])
                                           {!! Form::label('type', 'Slot Type',[ 'class' => 'control-label']) !!}
                                           {!! Form::select('type', ['' => 'Select'] + $type, null, array('id' => 'type', 'class' => 'form-control')) !!}
                                          </div>

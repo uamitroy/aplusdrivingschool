@@ -34,7 +34,7 @@ class SlotController extends Controller
 
         $this->validate($request, [
             'segment_id' => 'required|integer',
-            'type' => 'required|in:Online,Offline',
+            'type' => 'required|in:Virtual,Offline',
             'year'       => 'required|integer',
             'month'       => 'required|integer',
             'start_time'       => 'required',
@@ -69,7 +69,7 @@ class SlotController extends Controller
 
         $this->validate($request, [
             'segment_id' => 'required|integer',
-            'type' => 'required|in:Online,Offline',
+            'type' => 'required|in:Virtual,Offline',
             'year'       => 'required|integer',
             'month'       => 'required|integer',
             'start_time'       => 'required',
