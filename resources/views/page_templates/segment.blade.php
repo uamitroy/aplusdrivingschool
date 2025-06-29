@@ -6,6 +6,9 @@
           margin-bottom: 16px !important;
       }
   }
+  .timesec {
+    min-height: 91px;
+  }
 </style>
 @if (strpos(request()->url(), 'teen-segment-1') == false)
 <style type="text/css">
